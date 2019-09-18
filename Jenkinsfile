@@ -1,11 +1,4 @@
 pipeline {
-    agent {
-        label 'Master'
-    }
-
-    options {
-        disableConcurrentBuilds()
-    }
 
     stages {
         stage("Checkout") {
