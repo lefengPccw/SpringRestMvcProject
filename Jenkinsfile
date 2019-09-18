@@ -2,7 +2,9 @@ pipeline {
     agent { docker 'maven:3-alpine' }
     stages {
         stage('check java') {
+        steps {
                 sh "java -version"
+                }
             }
 
         stage("Checkout") {
