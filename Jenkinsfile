@@ -2,10 +2,10 @@ pipeline {
     agent { docker 'maven:3-alpine' }
     stages {
         stage('check java') {
-        steps {
+            steps {
                 sh "java -version"
-                }
             }
+        }
 
         stage("Checkout") {
             steps {
@@ -16,14 +16,14 @@ pipeline {
 
         stage("Unit Test") {
             steps {
-                sh "chmod +x mvnw"
-                sh "./mvnw clean test -DskipITs=true -Dcheckstyle.skip=true"
+
+                sh "mvn clean test -DskipITs=true -Dcheckstyle.skip=true"
             }
         }
 
         stage("Integration Test") {
             steps {
-                sh "./mvnw verify -Dsurefire.skip=true"
+                sh "mvn verify -Dsurefire.skip=true"
             }
         }
 
