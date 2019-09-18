@@ -1,6 +1,10 @@
 pipeline {
     agent { docker 'maven:3-alpine' }
     stages {
+        stage('check java') {
+                sh "java -version"
+            }
+
         stage("Checkout") {
             steps {
                 checkout scm
