@@ -25,3 +25,4 @@ http://localhost:8080/SpringRestMvcApp/hello
 
 
 test
+test
