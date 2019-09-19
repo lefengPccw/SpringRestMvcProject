@@ -31,7 +31,7 @@ pipeline {
         stage('Publish') {
             steps {
                 junit '**/target/surefire-reports/*.xml'
-                step( [ $class: 'JacocoPublisher' ] )
+                step( [ $class: 'JacocoPublisher' , exclusionPattern: '/io/**'] )
                 /* step( [ $class: 'JacocoPublisher' , exclusionPattern: '/io *//**'] ) */
             }
         }
