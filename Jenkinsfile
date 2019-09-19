@@ -16,8 +16,8 @@ pipeline {
 
         stage("Unit Test") {
             steps {
-                  sh "chmod +x mvnw"
-                  sh "./mvnw clean test -DskipITs=true -Dcheckstyle.skip=true"
+
+                sh "mvn clean test -DskipITs=true -Dcheckstyle.skip=true"
             }
         }
 
