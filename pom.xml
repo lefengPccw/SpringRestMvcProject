@@ -135,8 +135,38 @@
       				<contextPath>/${project.build.finalName}</contextPath>
     			</webApp>
   			</configuration>
-  		</plugin>		
-			
+  		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<configuration>
+				<skip>${surefire.skip}</skip>
+				<argLine>${args}</argLine>
+				<!--<excludes>
+					<exclude>**/*IT.*</exclude>
+					<exclude>**/*Controller*Test.*</exclude>
+					<exclude>**/*Process*Test.*</exclude>
+				</excludes>-->
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.4</version>
+			<executions>
+				<execution>
+					<id>prepare-agent</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+					<configuration>
+						<propertyName>args</propertyName>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+
 	</plugins>
   </build>
   
